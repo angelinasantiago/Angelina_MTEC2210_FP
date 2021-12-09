@@ -6,6 +6,7 @@ public class PlayerScript : MonoBehaviour
 {
 
     public float speed = 5;
+    public GameObject bulletprefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +20,15 @@ public class PlayerScript : MonoBehaviour
 
         transform.Translate(xMove, 0, 0);
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Shoot();
+        }
+
+    }
+
+    public void Shoot()
+    {
+        GameObject bullet = Instantiate(bulletprefab, transform.position, Quaternion.identity);
     }
 }
