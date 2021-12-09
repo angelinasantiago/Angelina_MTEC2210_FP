@@ -16,4 +16,9 @@ public class BulletScript : MonoBehaviour
     {
         transform.Translate(0, speed * Time.deltaTime, 0);
     }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
+    }
 }
