@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+
+    public float speed = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,9 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        float xMove = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+
+        transform.Translate(xMove, 0, 0);
+
     }
 }
