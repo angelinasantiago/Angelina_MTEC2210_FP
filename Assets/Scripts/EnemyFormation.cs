@@ -8,30 +8,43 @@ public class EnemyFormation : MonoBehaviour
     public bool movingDown;
     public bool movingSide;
 
-    //Vector3 destination;
+    public Vector3 destination;
     public float speed = 2;
 
     // Start is called before the first frame update
     void Start()
     {
-        //destination = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
+        movingSide = true;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        //MoveDown();
-        MoveHorizontal(1);
+        if (movingSide)
+        {
+            MoveHorizontal();
+        }
+     
+        if (movingDown)
+        {
+            MoveDown();
+        }
     }
 
-    public void MoveDown(Vector3 destination)
+    public void SetDestinationAndMoveDown()
+    {
+        destination = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
+        movingDown = true;
+    }
+
+    public void MoveDown()
     {
         transform.position = Vector3.MoveTowards(transform.position, destination, Time.deltaTime * speed);
     }
 
-    public void MoveHorizontal(int directionModifier)
+    public void MoveHorizontal()
     {
-        transform.Translate(speed * Time.deltaTime * directionModifier, 0, 0);
+        transform.Translate(speed * Time.deltaTime, 0, 0);
     }
 }
