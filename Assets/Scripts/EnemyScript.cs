@@ -36,7 +36,7 @@ public class EnemyScript : MonoBehaviour
             formation.SetDestinationAndMoveDown();
         }
 
-        if (collision.gameObject.tag == "Boundaries")
+        if (collision.gameObject.tag == "Boundaries" || collision.gameObject.tag == "Player")
         {
             gameManager.restartgame();
         }
