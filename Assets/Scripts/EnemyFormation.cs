@@ -5,6 +5,9 @@ using UnityEngine;
 public class EnemyFormation : MonoBehaviour
 {
 
+    public bool movingDown;
+    public bool movingSide;
+
     //Vector3 destination;
     public float speed = 2;
 
@@ -17,6 +20,7 @@ public class EnemyFormation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //MoveDown();
         MoveHorizontal(1);
     }
