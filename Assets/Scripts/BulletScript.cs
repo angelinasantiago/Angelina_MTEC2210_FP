@@ -28,6 +28,13 @@ public class BulletScript : MonoBehaviour
             Destroy(collision.gameObject);
             
         }
+
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(collision.gameObject);
+            gameManager.restartgame();
+        }
+
         Destroy(gameObject);
     }
 }
