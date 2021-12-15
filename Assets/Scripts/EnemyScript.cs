@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
+    private GameManager gameManager;
     private EnemyFormation formation;
     public int scorevalue;
 
@@ -11,6 +12,7 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         formation = GetComponentInParent<EnemyFormation>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -34,5 +36,9 @@ public class EnemyScript : MonoBehaviour
             formation.SetDestinationAndMoveDown();
         }
 
+        if (collision.gameObject.tag == "Boundaries")
+        {
+            gameManager.restartgame();
+        }
     }
 }

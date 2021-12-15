@@ -28,6 +28,6 @@ public class GameManager : MonoBehaviour
 
     public void restartgame()
     {
-        SceneManager.LoadScene("0");
+        SceneManager.LoadScene(0);
     }
 }
