@@ -18,11 +18,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoretext.text = score.ToString();
+        scoretext.text = score.ToString("0000");
     }
 
     public void increasescore(int value)
     {
         score += value;
+    }
+
+    public void restartgame()
+    {
+        SceneManager.LoadScene("0");
     }
 }
