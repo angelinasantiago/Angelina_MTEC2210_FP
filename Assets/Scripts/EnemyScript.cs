@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     private EnemyFormation formation;
+    public int scorevalue;
 
     // Start is called before the first frame update
     void Start()

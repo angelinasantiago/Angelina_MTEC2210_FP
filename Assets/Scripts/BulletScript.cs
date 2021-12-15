@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+    private GameManager gameManager;
     public float speed = 2;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -21,7 +23,10 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy") 
         {
+
+            gameManager.increasescore(collision.gameObject.GetComponent<EnemyScript>().scorevalue);
             Destroy(collision.gameObject);
+            
         }
         Destroy(gameObject);
     }
