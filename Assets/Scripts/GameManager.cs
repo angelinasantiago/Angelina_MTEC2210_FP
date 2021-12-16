@@ -30,4 +30,14 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void youlose()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void youwin()
+    {
+        SceneManager.LoadScene(2);
+    }
 }

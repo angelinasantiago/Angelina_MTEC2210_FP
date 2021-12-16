@@ -15,6 +15,8 @@ public class EnemyFormation : MonoBehaviour
     public GameObject bulletprefab;
     private float timeuntilfire;
     public float firedelay = 3;
+    public AudioSource audiosource;
+    public AudioClip deathclip;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +48,11 @@ public class EnemyFormation : MonoBehaviour
             enemyshoot();
             timeuntilfire = firedelay;
         }
+    }
+
+    public void playenemydeathaudio()
+    {
+        audiosource.PlayOneShot(deathclip);
     }
 
     public void enemyshoot()
