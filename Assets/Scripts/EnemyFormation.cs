@@ -69,7 +69,6 @@ public class EnemyFormation : MonoBehaviour
             return;
         }
 
-
         int index = Random.Range(0, numberofenemies);
         var enemyarray = GetComponentsInChildren<EnemyScript>();
         Vector3 bullpos = enemyarray[index].transform.position;
