@@ -6,17 +6,27 @@ public class BulletScript : MonoBehaviour
 {
     private GameManager gameManager;
     public float speed = 2;
+    private float mod;
+    public bool IsPlayerBullet;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        
+        if (IsPlayerBullet)
+        {
+            mod = 1;
+        } else
+        {
+            mod = -1;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0, speed * Time.deltaTime, 0);
+        transform.Translate(0, speed * Time.deltaTime * mod, 0);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

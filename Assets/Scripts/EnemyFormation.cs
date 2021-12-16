@@ -12,6 +12,7 @@ public class EnemyFormation : MonoBehaviour
     public float speed = 2;
 
     private float decsendSpeed = 2;
+    public GameObject bulletprefab;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,11 @@ public class EnemyFormation : MonoBehaviour
         if (movingDown)
         {
             MoveDown();
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Instantiate(bulletprefab, Vector3.zero, Quaternion.identity);
         }
     }
 
