@@ -13,11 +13,14 @@ public class EnemyFormation : MonoBehaviour
 
     private float decsendSpeed = 2;
     public GameObject bulletprefab;
+    private float timeuntilfire;
+    public float firedelay = 3;
 
     // Start is called before the first frame update
     void Start()
     {
         movingSide = true;
+        timeuntilfire = firedelay;
        
     }
 
@@ -28,16 +31,26 @@ public class EnemyFormation : MonoBehaviour
         {
             MoveHorizontal();
         }
-     
+
         if (movingDown)
         {
             MoveDown();
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (timeuntilfire > 0)
         {
-            Instantiate(bulletprefab, Vector3.zero, Quaternion.identity);
+            timeuntilfire -= Time.deltaTime;
+        } 
+        else
+        {
+            enemyshoot();
+            timeuntilfire = firedelay;
         }
+    }
+
+    public void enemyshoot()
+    {
+        Instantiate(bulletprefab, Vector3.zero, Quaternion.identity);
     }
 
     public void SetDestinationAndMoveDown()
