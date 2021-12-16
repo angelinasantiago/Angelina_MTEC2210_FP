@@ -18,12 +18,16 @@ public class EnemyFormation : MonoBehaviour
     public AudioSource audiosource;
     public AudioClip deathclip;
 
+    private GameManager gamemanager;
+
     // Start is called before the first frame update
     void Start()
     {
         movingSide = true;
         timeuntilfire = firedelay;
-       
+
+        gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
     }
 
     // Update is called once per frame
@@ -58,6 +62,13 @@ public class EnemyFormation : MonoBehaviour
     public void enemyshoot()
     {
         int numberofenemies = GetComponentsInChildren<EnemyScript>().Length;
+        
+        if (numberofenemies <= 0)
+        {
+            gamemanager.youwin();
+        }
+
+
         int index = Random.Range(0, numberofenemies);
         var enemyarray = GetComponentsInChildren<EnemyScript>();
         Vector3 bullpos = enemyarray[index].transform.position;
