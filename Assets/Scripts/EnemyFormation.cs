@@ -66,6 +66,7 @@ public class EnemyFormation : MonoBehaviour
         if (numberofenemies <= 0)
         {
             gamemanager.youwin();
+            return;
         }
 
 
