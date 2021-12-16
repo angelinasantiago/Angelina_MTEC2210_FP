@@ -50,7 +50,11 @@ public class EnemyFormation : MonoBehaviour
 
     public void enemyshoot()
     {
-        Instantiate(bulletprefab, Vector3.zero, Quaternion.identity);
+        int numberofenemies = GetComponentsInChildren<EnemyScript>().Length;
+        int index = Random.Range(0, numberofenemies);
+        var enemyarray = GetComponentsInChildren<EnemyScript>();
+        Vector3 bullpos = enemyarray[index].transform.position;
+        Instantiate(bulletprefab, bullpos, Quaternion.identity);
     }
 
     public void SetDestinationAndMoveDown()
